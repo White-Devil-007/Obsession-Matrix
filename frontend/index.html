@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="classic-cmd">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Prompt - Obsession Matrix</title>
+    <link rel="icon" type="image/x-icon" href="app_logo.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Consolas&family=Fira+Code:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="cmd-window">
+        <!-- WINDOW TITLEBAR (CMD STYLE) -->
+        <div id="cmd-titlebar">
+            <div class="cmd-titlebar-left">
+                <img src="app_logo.ico" alt="Logo" class="cmd-app-logo" style="width: 16px; height: 16px; object-fit: contain;">
+                <span class="cmd-title-text">Command Prompt - Obsession Matrix v1.0.0</span>
+            </div>
+            <div class="cmd-titlebar-right">
+                <button id="btn-toggle-crt" class="cmd-tb-btn" title="Toggle CRT Effect">CRT: OFF</button>
+            </div>
+        </div>
+
+        <!-- PURE TERMINAL INTERFACE -->
+        <div id="cmd-body">
+            <!-- TERMINAL CONSOLE LOG OUTPUT STREAM -->
+            <div id="terminal-output" class="cmd-output-body">
+                <div class="term-line term-sys">Microsoft Windows [Version 10.0.26100.1742]</div>
+                <div class="term-line term-sys">(c) Obsession Matrix Local Learning Terminal. All rights reserved.</div>
+                <div class="term-line term-sub">Type 'start' to start the application.</div>
+                <div class="term-line term-sys"> </div>
+            </div>
+
+            <!-- TERMINAL PROMPT LINE -->
+            <div id="cmd-prompt-bar">
+                <span class="cmd-prompt-label">C:\OBSESSION_MATRIX&gt;</span>
+                <input type="text" id="cli-input" class="cmd-prompt-input" autocomplete="off" spellcheck="false" placeholder="">
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

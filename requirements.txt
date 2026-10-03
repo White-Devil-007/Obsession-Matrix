@@ -1,0 +1,4 @@
+pywebview>=6.0.0
+pythonnet>=3.0.0
+plyer>=2.1.0
+pyinstaller>=6.0.0

@@ -1,0 +1,260 @@
+/* ==========================================================================
+   OBSESSION MATRIX - CMD TERMINAL THEMES & STYLES
+   ========================================================================== */
+
+:root {
+    --bg-color: #000000;
+    --window-bg: #000000;
+    --titlebar-bg: #141414;
+    --border-color: #333333;
+    --text-color: #ffffff;
+    --text-sys: #cccccc;
+    --prompt-color: #00ffff;
+    --caret-color: #00ffff;
+    --title-color: #ffffff;
+    --title-icon: #00ffff;
+    --user-cmd-color: #00ffff;
+    --error-color: #ff5555;
+    --success-color: #00ff00;
+}
+
+/* THEMES */
+body.theme-classic-cmd {
+    --bg-color: #000000;
+    --window-bg: #000000;
+    --titlebar-bg: #141414;
+    --border-color: #333333;
+    --text-color: #ffffff;
+    --text-sys: #cccccc;
+    --prompt-color: #00ffff;
+    --caret-color: #00ffff;
+    --title-color: #ffffff;
+    --title-icon: #00ffff;
+    --user-cmd-color: #00ffff;
+    --error-color: #ff5555;
+    --success-color: #00ff00;
+}
+
+body.theme-matrix-green {
+    --bg-color: #050e08;
+    --window-bg: #050e08;
+    --titlebar-bg: #0a1f12;
+    --border-color: #0f381c;
+    --text-color: #00ff66;
+    --text-sys: #00cc52;
+    --prompt-color: #00ff88;
+    --caret-color: #00ff88;
+    --title-color: #00ff66;
+    --title-icon: #00ff88;
+    --user-cmd-color: #00ffaa;
+    --error-color: #ff3344;
+    --success-color: #00ff88;
+}
+
+body.theme-powershell-blue {
+    --bg-color: #012456;
+    --window-bg: #012456;
+    --titlebar-bg: #001737;
+    --border-color: #003b8e;
+    --text-color: #ffffff;
+    --text-sys: #cbdcf7;
+    --prompt-color: #ffea00;
+    --caret-color: #ffea00;
+    --title-color: #ffffff;
+    --title-icon: #ffea00;
+    --user-cmd-color: #ffea00;
+    --error-color: #ff6b6b;
+    --success-color: #55ff55;
+}
+
+body.theme-amber-crt {
+    --bg-color: #120a00;
+    --window-bg: #120a00;
+    --titlebar-bg: #211200;
+    --border-color: #422400;
+    --text-color: #ffb000;
+    --text-sys: #d99600;
+    --prompt-color: #ffcc00;
+    --caret-color: #ffcc00;
+    --title-color: #ffb000;
+    --title-icon: #ffcc00;
+    --user-cmd-color: #ffe066;
+    --error-color: #ff4433;
+    --success-color: #ffcc00;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Consolas', 'Lucida Console', 'Courier New', monospace;
+    user-select: text;
+}
+
+html, body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* CRT Overlay */
+body.crt-overlay::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.01));
+    z-index: 9999;
+    background-size: 100% 3px, 6px 100%;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+/* CMD WINDOW CONTAINER */
+#cmd-window {
+    width: 100vw;
+    height: 100vh;
+    background: var(--window-bg);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+/* TITLEBAR */
+#cmd-titlebar {
+    height: 30px;
+    background: var(--titlebar-bg);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 0.8rem;
+}
+
+.cmd-titlebar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cmd-icon {
+    color: var(--title-icon);
+    font-weight: bold;
+}
+
+.cmd-title-text {
+    color: var(--title-color);
+    font-weight: 600;
+}
+
+.cmd-tb-btn {
+    background: var(--titlebar-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    cursor: pointer;
+}
+
+.cmd-tb-btn:hover {
+    color: var(--prompt-color);
+    border-color: var(--prompt-color);
+}
+
+/* TERMINAL BODY */
+#cmd-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 14px;
+    overflow: hidden;
+    background: var(--window-bg);
+}
+
+/* TERMINAL LOG STREAM */
+.cmd-output-body {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 4px 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: var(--window-bg);
+}
+
+.term-line {
+    white-space: pre-wrap;
+    word-break: break-all;
+    color: var(--text-color);
+}
+
+.term-sys { color: var(--text-sys); }
+.term-sub { color: var(--prompt-color); font-weight: bold; }
+.term-user { 
+    color: var(--user-cmd-color); 
+    font-weight: bold; 
+    margin-top: 12px;
+    padding-top: 6px;
+    border-top: 1px dashed var(--border-color);
+}
+.term-user:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+.term-error { color: var(--error-color); }
+.term-success { color: var(--success-color); }
+.term-warn { color: var(--prompt-color); }
+
+/* PROMPT BAR */
+#cmd-prompt-bar {
+    height: 32px;
+    background: var(--window-bg);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+    margin-top: 4px;
+}
+
+.cmd-prompt-label {
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: var(--prompt-color);
+    margin-right: 8px;
+    white-space: nowrap;
+}
+
+.cmd-prompt-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    font-family: 'Consolas', monospace;
+    caret-color: var(--caret-color);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--window-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+}
